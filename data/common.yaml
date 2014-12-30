@@ -1,0 +1,30 @@
+---
+serf::node_name: '%{::fqdn}'
+serf::protocol: '4'
+serf::advertise: '%{ipaddress}'
+serf::bind: '127.0.0.1'
+serf::encrypt_key: ''
+serf::event_handlers: []
+serf::tags: {}
+serf::start_join: []
+serf::profile: ''
+serf::rpc_address: '127.0.0.1'
+serf::rpc_port: '7373'
+serf::rpc_auth: ''
+serf::log_level: 'info'
+serf::log_file: '/var/log/serf.log'
+
+serf::install_class: '::serf::install::download'
+serf::install_path: '/usr/local/bin'
+
+serf::install::download::version: '0.6.3'
+serf::install::download::unzip_package: 'unzip'
+
+serf::install::package::version: 'present'
+serf::install::package::package_name: 'serf'
+
+serf::config_dir: '/etc/serf'
+serf::config_owner: 'root'
+serf::config_group: 'root'
+
+serf::service_class: '::serf::service::initscript'

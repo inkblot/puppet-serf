@@ -1,0 +1,12 @@
+---
+serf::log_file: '/spec/_LOG_FILE_'
+
+serf::install_path: '/spec/_INSTALL_PATH_'
+
+serf::config_dir: '/spec/_CONFIG_DIR_'
+serf::config_owner: '_CONFIG_OWNER_'
+serf::config_group: '_CONFIG_GROUP_'
+
+serf::install::download::version: '_VERSION_'
+serf::install::package::version: '_VERSION_'
+serf::install::package::package_name: '_PACKAGE_NAME_'

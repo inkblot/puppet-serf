@@ -1,0 +1,2 @@
+---
+serf::install_class: '::serf::install::package'

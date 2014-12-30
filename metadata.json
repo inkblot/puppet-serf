@@ -1,0 +1,25 @@
+{
+  "name": "inkblot-serf",
+  "version": "0.5.0",
+  "author": "Nate Riffe",
+  "license": "Apache-2.0",
+  "summary": "A Puppet module to deploy and manage the Serf agent.",
+  "source": "https://github.com/inkblot/puppet-serf",
+  "project_page": "https://github.com/inkblot/puppet-serf",
+  "issues_url": "https://github.com/inkblot/puppet-serf",
+  "tags": [ "serf" ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "Debian",
+      "operatingsystemrelease": [ "7.7" ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [ "12.04", "14.04" ]
+    }
+  ],
+  "dependencies": [
+    { "name": "ripienaar/module_data", "version_requirement": ">= 0.0.3" },
+    { "name": "puppetlabs/stdlib", "version_requirement": ">=3.2.0 <5.0.0" }
+  ]
+}
