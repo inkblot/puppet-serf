@@ -49,6 +49,7 @@ class serf::install::download (
     }
 
     file { 'serf':
+        ensure  => link,
         path    => "${install_path}/serf",
         target  => "${install_path}/serf-${version}",
         require => File["serf-${version}"],
