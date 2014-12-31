@@ -52,7 +52,9 @@ class serf (
         notify  => Service['serf'],
     }
 
-    class { $service_class: }
+    if $service_class {
+        class { $service_class: }
+    }
 
     anchor { 'serf::config': }
 
