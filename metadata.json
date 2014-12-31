@@ -1,6 +1,6 @@
 {
   "name": "inkblot-serf",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "author": "Nate Riffe",
   "license": "Apache-2.0",
   "summary": "A Puppet module to deploy and manage the Serf agent.",
