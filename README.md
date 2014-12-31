@@ -1,6 +1,8 @@
 puppet-serf
 ===========
 
+[![Build Status](https://secure.travis-ci.org/inkblot/puppet-serf.png)](http://travis-ci.org/inkblot/puppet-serf)
+
 ## Description
 Deploy and control the [Serf](https://serfdom.io/) cluster agent.
 
