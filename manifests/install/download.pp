@@ -49,9 +49,11 @@ class serf::install::download (
     }
 
     file { 'serf':
-        path   => "${install_path}/serf",
-        target => "${install_path}/serf-${version}",
-        before => Anchor['serf::install'],
-        notify => Service['serf'],
+        ensure  => link,
+        path    => "${install_path}/serf",
+        target  => "${install_path}/serf-${version}",
+        require => File["serf-${version}"],
+        before  => Anchor['serf::install'],
+        notify  => Service['serf'],
     }
 }
