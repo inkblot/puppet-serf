@@ -11,6 +11,7 @@ config_file['event_handlers'] = @event_handlers unless @event_handlers.empty?
 config_file['tags'] = @tags unless @tags.empty?
 config_file['start_join'] = @start_join unless @start_join.empty?
 config_file['profile'] = @profile unless @profile.to_s.empty?
+config_file['discover'] = @discover unless @discover.empty?
 config_file['rpc_addr'] = "#{@rpc_address}:#{@rpc_port}" unless @rpc_address.to_s.empty?
 config_file['rpc_auth'] = @rpc_auth unless @rpc_auth.to_s.empty?
 config_file['log_level'] = @log_level if @log_level
