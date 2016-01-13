@@ -27,7 +27,7 @@ class serf::install::download (
         }
     }
 
-    $url = "https://dl.bintray.com/mitchellh/serf/${version}_${_os}_${_architecture}.zip"
+    $url = "https://releases.hashicorp.com/serf/${version}/serf_${version}_${_os}_${_architecture}.zip"
 
     exec { 'download_serf':
         command => "wget ${url} -qO - | funzip > ${install_path}/serf-${version}",
