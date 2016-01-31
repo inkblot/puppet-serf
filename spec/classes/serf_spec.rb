@@ -33,4 +33,13 @@ describe 'serf' do
 
     it { should contain_class('serf::service::upstart') }
   end
+
+  context 'using systemd service' do
+    let(:facts) { {
+      :osfamily => 'RedHat',
+      :operatingsystemmajrelease => '7'
+    } }
+
+    it { should contain_class('serf::service::systemd') }
+  end
 end
