@@ -23,6 +23,7 @@ class serf (
     $service_class  = undef,
     $service_ensure = 'running',
     $service_enable = 'true',
+    $service_provider = undef,
 
     $install_path   = undef,
 ) {
@@ -61,8 +62,9 @@ class serf (
     anchor { 'serf::config': }
 
     service { 'serf':
-        ensure  => $service_ensure,
-        enable  => $service_enable,
-        require => Anchor['serf::install', 'serf::config']
+        ensure   => $service_ensure,
+        enable   => $service_enable,
+        provider => $service_provider,
+        require  => Anchor['serf::install', 'serf::config']
     }
 }
