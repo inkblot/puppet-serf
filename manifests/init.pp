@@ -23,11 +23,14 @@ class serf (
     $service_class  = undef,
     $service_ensure = 'running',
     $service_enable = 'true',
-    $service_provider = undef,
 
     $install_path   = undef,
 ) {
 
+    case $service_class {
+      '::serf::service::upstart': { $service_provider = 'upstart' }
+      default: { $service_provider = undef }
+    }
     class { $install_class: }
 
     anchor { 'serf::install': }
