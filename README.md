@@ -163,7 +163,7 @@ three classes which may be used for this purpose, `serf::service::initscript`,
 An empty value of `''` may be used if no additional configuration is necessary
 in order to satisfy the `service` resource requirement (for example, when using
 `serf::install::package` to install a package that contains appropriate service
-configuration). Default: on Debian-based platforms:`serf::service::initscript`,
+configuration). Default: on Debian-based, and Redhat family 6 platforms:`serf::service::initscript`,
 on Ubuntu: `serf::service::upstart`, on Redhat family 7 : `serf::service::systemd`
 
 #### `service_enable`
@@ -280,6 +280,7 @@ This module is known to work on:
 * Ubuntu 12.04 Precise Pangolin
 * Debian 7.x wheezy
 * Redhat/CentOS 7
+* Redhat/ CentOS 6
 * Raspbian
 
 Pull requests enabling use of the module on additional platforms are welcome.
