@@ -9,6 +9,7 @@ class serf (
     $tags           = undef,
     $start_join     = undef,
     $profile        = undef,
+    $discover       = undef,
     $rpc_address    = undef,
     $rpc_port       = undef,
     $rpc_auth       = undef,
@@ -26,7 +27,7 @@ class serf (
 ) {
 
     class { $install_class: }
-    
+
     anchor { 'serf::install': }
 
     File {
