@@ -3,6 +3,7 @@ serf::node_name: '%{::fqdn}'
 serf::protocol: '4'
 serf::advertise: '%{ipaddress}'
 serf::bind: '127.0.0.1'
+serf::discover: ''
 serf::encrypt_key: ''
 serf::event_handlers: []
 serf::tags: {}

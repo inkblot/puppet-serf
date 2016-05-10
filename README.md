@@ -67,6 +67,11 @@ might not be fully hardened. In a secured operating environment, `'0.0.0.0'` or
 `'${::ipaddress}'` may be an acceptable estate-wide value. Default:
 `'127.0.0.1'`
 
+#### `discover`
+
+A cluster name to query and respond to via mDNS. Serf can use this to
+autodiscover peers in a multicast-capable environment. Default: `''`
+
 #### `encrypt_key`
 
 The Base-64 encoded 16-byte key that the Serf agent will use to encrypt and
