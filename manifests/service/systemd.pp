@@ -1,17 +1,13 @@
 # ex: syntax=puppet sw=4 ts=4 si et
-class serf::service::initscript (
+class serf::service::systemd (
     $install_path = $::serf::install_path,
     $config_dir   = $::serf::config_dir,
 ) {
-  case $::osfamily {
-    'Debian': { $template = 'serf/initscript.erb' }
-    'RedHat': { $template = 'serf/sysvinit.erb' }
-  }
-    file { '/etc/init.d/serf':
+    file { '/usr/lib/systemd/system/serf.service':
         owner   => 'root',
         group   => 'root',
-        mode    => '0755',
-        content => template($template),
+        mode    => '0644',
+        content => template('serf/systemd.service.erb'),
         require => Anchor['serf::install'],
         before  => Anchor['serf::config'],
         notify  => Service['serf'],

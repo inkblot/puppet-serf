@@ -22,10 +22,16 @@ class serf (
     $config_group   = undef,
 
     $service_class  = undef,
+    $service_ensure = 'running',
+    $service_enable = 'true',
 
     $install_path   = undef,
 ) {
 
+    case $service_class {
+      '::serf::service::upstart': { $service_provider = 'upstart' }
+      default: { $service_provider = undef }
+    }
     class { $install_class: }
 
     anchor { 'serf::install': }
@@ -60,8 +66,9 @@ class serf (
     anchor { 'serf::config': }
 
     service { 'serf':
-        ensure  => running,
-        enable  => true,
-        require => Anchor['serf::install', 'serf::config']
+        ensure   => $service_ensure,
+        enable   => $service_enable,
+        provider => $service_provider,
+        require  => Anchor['serf::install', 'serf::config']
     }
 }

@@ -158,13 +158,21 @@ The name of the Puppet class that will be included into the catalog in order to
 configure Serf as a service. Any arbitrary Puppet class may fill this role,
 however the supplied class must leave the system in a state such that Puppet's
 `service` resource recognises `serf` as valid and extant. The module includes
-two classes which may be used for this purpose, `serf::service::initscript` and
-`serf::service::upstart`, which are documented separately. An empty value of
-`''` may be used if no additional configuration is necessary in order to
-satisfy the `service` resource requirement (for example, when using
+three classes which may be used for this purpose, `serf::service::initscript`,
+`serf::service::systemd` and `serf::service::upstart`, which are documented separately.
+An empty value of `''` may be used if no additional configuration is necessary
+in order to satisfy the `service` resource requirement (for example, when using
 `serf::install::package` to install a package that contains appropriate service
-configuration). Default: on Debian-based platforms:
-`serf::service::initscript`, on Ubuntu: `serf::service::upstart`
+configuration). Default: on Debian-based, and Redhat family 6 platforms:`serf::service::initscript`,
+on Ubuntu: `serf::service::upstart`, on Redhat family 7 : `serf::service::systemd`
+
+#### `service_enable`
+
+Serf service status. Default: `'running'`
+
+#### `service_enable`
+
+Serf service state at boot. Default: `'true'`
 
 #### `install_path`
 
@@ -229,6 +237,23 @@ Default: `${::serf::install_path}`
 The path where the `serf.conf` configuration file is located. This parameter
 need not be set. Default: `${::serf::config_dir}`
 
+## Class `serf::service::systemd`
+
+This class configures Serf as a service by installing an systemd-style
+startup script.
+
+### Parameters
+
+#### `install_path` (Private)
+
+The path where the `serf` binary is located. This parameter need not be set.
+Default: `${::serf::install_path}`
+
+#### `config_dir` (Private)
+
+The path where the `serf.conf` configuration file is located. This parameter
+need not be set. Default: `${::serf::config_dir}`
+
 ## Class `serf::service::upstart`
 
 This class configures Serf as a service by installing an upstart configuration
@@ -254,6 +279,8 @@ This module is known to work on:
 * Ubuntu 14.04 Trusty Tahr
 * Ubuntu 12.04 Precise Pangolin
 * Debian 7.x wheezy
+* Redhat/CentOS 7
+* Redhat/ CentOS 6
 * Raspbian
 
 Pull requests enabling use of the module on additional platforms are welcome.
