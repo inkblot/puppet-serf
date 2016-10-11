@@ -7,9 +7,7 @@ After=network.target
 
 [Service]
 Type=simple
-# Ensure the configuration directory exists.
-ExecStartPre=/usr/bin/install -d -g root -o root <%= @config_dir %>
-ExecStart=<%= @install_path %>/serf agent -config-dir=<%= @config_dir %>
+ExecStart=<%= @install_path %>/serf agent -config-file=<%= @config_dir %>/serf.conf
 # Use SIGINT instead of SIGTERM so serf can depart the cluster.
 KillSignal=SIGINT
 # Restart on success, failure, and any emitted signals like HUP.

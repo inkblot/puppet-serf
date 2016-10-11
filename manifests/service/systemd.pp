@@ -2,8 +2,9 @@
 class serf::service::systemd (
     $install_path = $::serf::install_path,
     $config_dir   = $::serf::config_dir,
+    $systemd_dir  = undef,
 ) {
-    file { '/usr/lib/systemd/system/serf.service':
+    file { "${systemd_dir}/serf.service":
         owner   => 'root',
         group   => 'root',
         mode    => '0644',

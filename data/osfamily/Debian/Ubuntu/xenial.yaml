@@ -1,0 +1,3 @@
+---
+serf::service_class: '::serf::service::systemd'
+serf::service::systemd::systemd_dir: '/lib/systemd/system'
