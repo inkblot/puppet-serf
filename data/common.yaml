@@ -29,3 +29,5 @@ serf::config_owner: 'root'
 serf::config_group: 'root'
 
 serf::service_class: '::serf::service::initscript'
+
+serf::service::systemd::systemd_dir: '/usr/lib/systemd/system'
