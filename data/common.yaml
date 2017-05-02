@@ -19,7 +19,6 @@ serf::install_class: '::serf::install::download'
 serf::install_path: '/usr/local/bin'
 
 serf::install::download::version: '0.6.3'
-serf::install::download::unzip_package: 'unzip'
 
 serf::install::package::version: 'present'
 serf::install::package::package_name: 'serf'

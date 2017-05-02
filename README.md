@@ -204,12 +204,6 @@ Serf's official download site, but it must be an explicit version. Default:
 The path where the `serf` binary is located. This parameter need not be set.
 Default: `${::serf::install_path}`
 
-#### `unzip_package`
-
-The name of the package that the module with install in order to unzip the file
-it downloads. Specifically, the module will use the `funzip` program. Default:
-`'unzip'`
-
 ## Class `serf::install::package`
 
 This class installs the `serf` binary by installing a package using Puppet's
